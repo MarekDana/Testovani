@@ -49,7 +49,8 @@ public class MyHistoryTest {
 
     @Test
     public void readTest() throws IOException {
-        MyHistory h = new MyHistory("C:/Users/Marek/Documents/NetBeansProjects/test.txt");
+        Path p = Files.createTempFile(null, null);
+        MyHistory h = new MyHistory(p.toString());
         h.addLine("ahoj");
         h.addLine("nazdar");
         h.save();
@@ -92,3 +93,4 @@ public class MyHistoryTest {
     }
 
 }
+
