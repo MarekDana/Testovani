@@ -11,10 +11,8 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
-import org.junit.After;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import org.junit.Before;
 
 /**
  *
@@ -25,56 +23,6 @@ public class MyHistoryTest {
     public MyHistoryTest() {
     }
 
-    private MyHistory h;
-    Path p;
-
-    @Before
-    public void prepare() throws IOException {
-        p = Files.createTempFile(null, null);
-        h = new MyHistory(p.toString());
-    }
-
-    @After
-    public void reset() {
-
-        File f = new File(p.toString());
-        f.delete();
-    }
-
-    @Test
-    public void write() {
-        try {
-            h.save();
-        } catch (Exception x) {
-            fail();
-        }
-
-    }
-
-    @Test
-    public void write1() {
-        try {
-            h.addLine("ahoj");
-            h.save();
-        } catch (Exception x) {
-            fail();
-        }
-
-    }
-
-    @Test
-    public void write2() {
-        try {
-            h.addLine("ahoj2");
-            h.addLine("ahoj2");
-            h.save();
-        } catch (Exception x) {
-            fail();
-        }
-
-    }
-
-    /*
     @Test
     public void initTest() throws IOException {
         Path p = Files.createTempFile(null, null);
@@ -142,5 +90,5 @@ public class MyHistoryTest {
         assertEquals("cau", h.toString());
 
     }
-     */
+
 }
