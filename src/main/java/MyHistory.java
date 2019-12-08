@@ -35,7 +35,7 @@ public class MyHistory {
 
     }
 
-    public void save() throws IOException {
+    public void save() {
         try {
             for (int i = 0; i < arr.size(); i++) {
                 for (int j = i + 1; j < arr.size(); j++) {
@@ -45,16 +45,12 @@ public class MyHistory {
                     }
                 }
             }
-       if (arr != null) {
             Files.write(Paths.get(name), arr);
-        } 
-        }
-       catch (IOException ex) {
+        } catch (IOException ex) {
             System.out.println(ex.toString());
             System.out.println("Soubor nebyl nalezen: " + name);
         }
     }
-    
 
     public void addLine(String str) {
         if (arr == null) {
@@ -79,10 +75,12 @@ public class MyHistory {
         }
         return String.join("\n", arr);
     }
-    
-       public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        
-        
+
+    public static void main(String[] args) {
+     /*   MyHistory h = new MyHistory("C:/Users/Marek/Documents/NetBeansProjects/a.txt");
+        h.read();
+
+        System.out.println(h.toString());*/
+
     }
 }
